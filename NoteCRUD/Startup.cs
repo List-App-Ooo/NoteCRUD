@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NoteCRUD.Data;
+using NoteCRUD.Services;
 
 namespace NoteCRUD
 {
@@ -28,6 +31,9 @@ namespace NoteCRUD
         {
 
             services.AddControllers();
+            services.AddDbContext<NoteContext>(opt => opt.UseInMemoryDatabase("dbNoteInMemory"));
+            services.AddScoped<INoteRepo, NoteRepo>();
+            services.AddScoped<INoteService, NoteService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteCRUD", Version = "v1" });
