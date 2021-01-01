@@ -22,9 +22,9 @@ namespace NoteCRUD.Data
             return await query.ToListAsync<NoteItemModel>();
         }
 
-        public Task<int> GetTotal(Guid postId)
+        public async Task<int> GetTotal(Guid listId)
         {
-            throw new NotImplementedException();
+            return await _context.Notes.CountAsync(m => m.ListId == listId);
         }
     }
 }
