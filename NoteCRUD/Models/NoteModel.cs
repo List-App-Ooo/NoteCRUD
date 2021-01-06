@@ -2,7 +2,7 @@ using System;
 
 namespace NoteCRUD.Models
 {
-    public class NoteItemModel
+    public class NoteModel
     {
         public Guid Id { get; set; }
         public string Title { get; set; }

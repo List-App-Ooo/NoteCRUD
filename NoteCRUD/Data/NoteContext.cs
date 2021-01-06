@@ -7,7 +7,7 @@ namespace NoteCRUD.Data
     {
         public NoteContext(DbContextOptions<NoteContext> options) : base(options) { }
 
-        public DbSet<NoteItemModel> Notes { get; set; }
+        public DbSet<NoteModel> Notes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

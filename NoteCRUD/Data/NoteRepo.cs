@@ -16,10 +16,10 @@ namespace NoteCRUD.Data
             this._context = context;
         }
 
-        public async Task<List<NoteItemModel>> GetNoteItems(Guid listId)
+        public async Task<List<NoteModel>> GetNoteItems(Guid listId)
         {
             var query = _context.Notes.Where(m => m.ListId == listId).OrderBy(d => d.TimeStamp);
-            return await query.ToListAsync<NoteItemModel>();
+            return await query.ToListAsync<NoteModel>();
         }
 
         public async Task<int> GetTotal(Guid listId)

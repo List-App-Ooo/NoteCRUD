@@ -16,11 +16,11 @@ namespace NoteCRUD.Data
                 return;
             }
 
-            var notes = new List<NoteItemModel>();
+            var notes = new List<NoteModel>();
             Guid listId = new Guid("ef6a7925-80a6-44bc-9e03-89bc7ca3586e");
 
             notes.Add(
-                new NoteItemModel()
+                new NoteModel()
                 {
                     Id = new Guid(),
                     Title = "This is note #1",
@@ -31,7 +31,7 @@ namespace NoteCRUD.Data
             );
 
             notes.Add(
-                new NoteItemModel()
+                new NoteModel()
                 {
                     Id = new Guid(),
                     Title = "This is note #2",
@@ -42,7 +42,7 @@ namespace NoteCRUD.Data
             );
 
             notes.Add(
-                new NoteItemModel()
+                new NoteModel()
                 {
                     Id = new Guid(),
                     Title = "This is note #3",

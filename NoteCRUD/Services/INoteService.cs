@@ -7,7 +7,7 @@ namespace NoteCRUD.Services
 {
     public interface INoteService
     {
-        Task<List<NoteItemModel>> GetNotes(Guid listId);
+        Task<List<NoteModel>> GetNotes(Guid listId);
         Task<int> GetNoteTotal(Guid listId);
     }
 }

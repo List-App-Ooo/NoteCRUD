@@ -15,7 +15,7 @@ namespace NoteCRUD.Services
             this._repo = repo;
         }
 
-        public Task<List<NoteItemModel>> GetNotes(Guid listId)
+        public Task<List<NoteModel>> GetNotes(Guid listId)
         {
             return _repo.GetNoteItems(listId);
         }
