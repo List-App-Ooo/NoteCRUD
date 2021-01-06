@@ -34,6 +34,11 @@ namespace NoteCRUD
             services.AddDbContext<NoteContext>(opt => opt.UseInMemoryDatabase("dbNoteInMemory"));
             services.AddScoped<INoteRepo, NoteRepo>();
             services.AddScoped<INoteService, NoteService>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.AllowAnyOrigin());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoteCRUD", Version = "v1" });
@@ -55,6 +60,8 @@ namespace NoteCRUD
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

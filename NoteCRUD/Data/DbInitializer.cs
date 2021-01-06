@@ -17,14 +17,14 @@ namespace NoteCRUD.Data
             }
 
             var notes = new List<NoteItemModel>();
-            Guid listId = new Guid();
+            Guid listId = new Guid("ef6a7925-80a6-44bc-9e03-89bc7ca3586e");
 
             notes.Add(
                 new NoteItemModel()
                 {
                     Id = new Guid(),
                     Title = "This is note #1",
-                    Desc = "Note #1 is about a vaction",
+                    Desc = "Note #1 is about a vacation",
                     TimeStamp = DateTime.Now,
                     ListId = listId
                 }
