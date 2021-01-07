@@ -6,7 +6,7 @@ using NoteCRUD.Services;
 namespace NoteCRUD.Controllers
 {   
     [ApiController]
-    [Route("api/note")]
+    [Route("api/[controller]")]
     public class NoteController : ControllerBase
     {
         private readonly INoteService _service;
@@ -16,10 +16,10 @@ namespace NoteCRUD.Controllers
             this._service = service;
         }
 
-        [HttpGet("{listId}")]
-        public async Task<IActionResult> GetNotes(Guid listId)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetNotes(Guid id)
         {
-            var result = await _service.GetNotes(listId);
+            var result = await _service.GetNotes(id);
             return Ok(result);
         }
     }
