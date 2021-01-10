@@ -16,6 +16,11 @@ namespace NoteCRUD.Data
             this._context = context;
         }
 
+        public async Task<NoteModel> GetNoteItem(Guid id)
+        {
+            return await _context.Notes.FirstOrDefaultAsync(m => m.Id == id);
+        }
+
         public async Task<List<NoteModel>> GetNoteItems(Guid listId)
         {
             var query = _context.Notes.Where(m => m.ListId == listId).OrderBy(d => d.TimeStamp);

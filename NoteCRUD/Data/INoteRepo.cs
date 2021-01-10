@@ -7,6 +7,7 @@ namespace NoteCRUD.Data
 {
     public interface INoteRepo
     {
+        Task<NoteModel> GetNoteItem(Guid id);
         Task<List<NoteModel>> GetNoteItems(Guid listId);
         Task<int> GetTotal(Guid listId);
     }

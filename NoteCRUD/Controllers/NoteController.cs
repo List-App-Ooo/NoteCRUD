@@ -17,9 +17,16 @@ namespace NoteCRUD.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetNotes(Guid id)
+        public async Task<IActionResult> GetNote(Guid id)
         {
-            var result = await _service.GetNotes(id);
+            var result = await _service.GetNote(id);
+            return Ok(result);
+        }
+
+        [HttpGet("list/{listId}")]
+        public async Task<IActionResult> GetNotes(Guid listId)
+        {
+            var result = await _service.GetNotes(listId);
             return Ok(result);
         }
     }
