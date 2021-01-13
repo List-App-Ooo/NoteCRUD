@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NoteCRUD.Models;
 using NoteCRUD.Services;
 
 namespace NoteCRUD.Controllers

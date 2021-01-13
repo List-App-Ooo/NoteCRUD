@@ -36,12 +36,11 @@ namespace NoteCRUD.Services
                 Id = Guid.NewGuid(),
                 Title = note.Title,
                 Desc = note.Desc,
-                IsComplete = note.IsComplete,
                 TimeStamp = DateTime.Now,
                 ListId = note.ListId
             };
 
-            return await _NoteRepo.CreateNote(newNote);
+            return await _repo.CreateNote(newNote);
         }
     }
 }
