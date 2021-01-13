@@ -9,6 +9,7 @@ namespace NoteCRUD.Services
     {
         Task<NoteModel> GetNote(Guid id);
         Task<List<NoteModel>> GetNotes(Guid listId);
-        Task<int> GetNoteTotal(Guid listId);
+        Task<int> GetTotal(Guid listId);
+        Task<NoteModel> CreateNote(NoteModel note)
     }
 }

@@ -10,5 +10,6 @@ namespace NoteCRUD.Data
         Task<NoteModel> GetNoteItem(Guid id);
         Task<List<NoteModel>> GetNoteItems(Guid listId);
         Task<int> GetTotal(Guid listId);
+        Task<NoteModel> CreateNote(NoteModel note);
     }
 }

@@ -16,7 +16,7 @@ namespace NoteCRUD.Controllers
             this._service = service;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetNote")]
         public async Task<IActionResult> GetNote(Guid id)
         {
             var result = await _service.GetNote(id);
@@ -28,6 +28,19 @@ namespace NoteCRUD.Controllers
         {
             var result = await _service.GetNotes(listId);
             return Ok(result);
+        }
+        [HttpGet("total/{listId}")]
+        public async Task<IActionResult> GetTotal(Guid listId)
+        {
+            var result = await _service.GetTotal(listId);
+            return Ok(result);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateNote(NoteModel note)
+        {
+            if (note is null) return BadRequest();
+            var result = await _service.CreateNote(note);
+            return CreatedAtRoute(nameof(GetNote), new { Id = result.Id }, result);
         }
     }
 }

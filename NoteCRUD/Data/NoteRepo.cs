@@ -31,5 +31,17 @@ namespace NoteCRUD.Data
         {
             return await _context.Notes.CountAsync(m => m.ListId == listId);
         }
+        
+        public async Task<NoteModel> CreateNote(NoteModel note)
+        {
+            if (note == null)
+            {
+                throw new ArgumentNullException(nameof(note));
+            }
+            
+            await _context.AddAsync(note);
+            await _context.SaveChangesAsync();
+            return note;
+        }
     }
 }
