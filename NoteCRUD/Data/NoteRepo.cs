@@ -43,5 +43,12 @@ namespace NoteCRUD.Data
             await _context.SaveChangesAsync();
             return note;
         }
+        
+        public async void DeleteNote(Guid id)
+        {
+            var query = await _context.Notes.FirstOrDefaultAsync(m => m.Id.Equals(id));
+            _context.Notes.Remove(query);
+            await _context.SaveChangesAsync();
+        }
     }
 }

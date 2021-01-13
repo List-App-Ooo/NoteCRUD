@@ -11,5 +11,6 @@ namespace NoteCRUD.Services
         Task<List<NoteModel>> GetNotes(Guid listId);
         Task<int> GetTotal(Guid listId);
         Task<NoteModel> CreateNote(NoteModel note);
+        void DeleteNote(Guid id);
     }
 }

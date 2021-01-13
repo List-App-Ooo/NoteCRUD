@@ -43,5 +43,11 @@ namespace NoteCRUD.Controllers
             var result = await _service.CreateNote(note);
             return CreatedAtRoute(nameof(GetNote), new { Id = result.Id }, result);
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteNote(Guid id)
+        {
+            _service.DeleteNote(id);
+            return NoContent();
+        }
     }
 }

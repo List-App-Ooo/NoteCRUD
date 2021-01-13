@@ -42,5 +42,10 @@ namespace NoteCRUD.Services
 
             return await _repo.CreateNote(newNote);
         }
+        
+        public void DeleteNote(Guid id)
+        {
+            _repo.DeleteNote(id);
+        }
     }
 }
